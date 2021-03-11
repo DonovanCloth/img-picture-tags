@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Img vs Picture</title>
+  </head>
+  <body>
+    <h2>
+      The img tag with a source AND a srcset attribute AND sizes attribute
+    </h2>
+
+    <p>below 625px will trigger the cat-500 image because image is 80% wide</p>
+    <p>
+      below 1333px will trigger the cat-1000 image because image is 75% wide
+    </p>
+    <p>
+      below 1430px will trigger the cat-1500 image because image is 70% wide
+    </p>
+
+    <img
+      class="srcset-sizes"
+      src="assets/images/cat-500.jpg"
+      srcset="
+        assets/images/cat-500.jpg   500w,
+        assets/images/cat-1000.jpg 1000w,
+        assets/images/cat-1500.jpg 1500w
+      "
+      sizes="(min-width: 1250px) 70vw,
+      (min-width: 750px) 75vw,
+      80vw"
+      alt="single source image with multiple srcset"
+    />
+
+    <p>+</p>
+    <p>won't load image until it reaches its srcset breakpoint FOR REAL</p>
+    <p>
+      together with this attribute the optimization reaches its maximum capacity
+    </p>
+
+    <p>-</p>
+    <p>
+      doing media queries in the css and again in the sizes attribute represents
+      too much work for the benefits we're looking for
+    </p>
+    <p>makes a small thing look ultra complex</p>
+  </body>
+</html>

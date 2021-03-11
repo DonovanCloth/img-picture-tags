@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Img vs Picture</title>
+  </head>
+  <body>
+    <h2>Should I use the picture tag ?</h2>
+
+    <p>
+      You don’t need to know all of the use cases, but you do need to know the
+      difference between the two most common use cases
+    </p>
+
+    <p>
+      Resolution switching — In the resolution switching use case, we need to
+      select a different source of the same image because we need a different
+      resolution for any number of reasons. These reasons include the image
+      being used at a different size based on the size of the screen, the pixel
+      density of the screen, or to avoid downloading unnecessarily large images.
+    </p>
+    <p>
+      Art direction — In the art direction use case, there is some reason why we
+      need to modify the content of an image under certain conditions. Maybe we
+      need to crop the image differently on small screens. Or perhaps we’re
+      working with a hero image that contains text and simply providing a
+      smaller version of the image won’t work because the text will be
+      unreadable. Basically, if you could resize an image without making any
+      other changes, and have a new source that solves your responsive images
+      needs, then you’re talking about the resolution switching use case. If you
+      need to change anything other than resolution, you’re talking about art
+      direction.
+    </p>
+  </body>
+</html>

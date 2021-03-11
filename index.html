@@ -8,6 +8,12 @@
     <title>Img vs Picture</title>
   </head>
   <body>
+    <nav>
+      <a href="/srcset.html">srcset</a>
+      <a href="/srcset-sizes.html">srcset-sizes</a>
+      <a href="/picture.html">picture</a>
+    </nav>
+
     <h2>The img tag with a source attribute</h2>
 
     <p>
@@ -36,61 +42,6 @@
     <p>
       overall not optimized to adapt to the various range of existing screens
     </p>
-
-    <hr />
-
-    <h2>The img tag with a source AND a srcset attribute</h2>
-
-    <p>
-      In order to test it disable your cache and refresh the page below the
-      following width values
-    </p>
-
-    <p>below 500px will trigger the cat-500 image</p>
-    <p>below 1000px will trigger the cat-1000 image</p>
-    <p>below 1500px will trigger the cat-1500 image</p>
-    <p>
-      no other image are expected in this configuration but we could have more
-      than 3
-    </p>
-    <p>
-      You should also pay attention to this detail: once the bigger picture is
-      loaded on chrome the smaller versions won't load because there's no point
-      in loading extra images when the best one is already on the client side
-    </p>
-
-    <img
-      class="srcset"
-      src="assets/images/cat-500.jpg"
-      srcset="
-        assets/images/cat-500.jpg   500w,
-        assets/images/cat-1000.jpg 1000w,
-        assets/images/cat-1500.jpg 1500w
-      "
-      alt="single source image with multiple srcset"
-    />
-
-    <p>
-      smallest picture is provided in the src attribute as a fallback for older
-      browsers
-    </p>
-    <p>
-      the srcset attribute expects a comma separated list of src together with
-      their matching width on the viewport
-    </p>
-
-    <p>+</p>
-    <p>
-      works fine in all browsers if we leave the src attribute as a fallback for
-      older browsers
-    </p>
-    <p>
-      will load an image that suits the viewport which improves performances
-    </p>
-    <p>suits 95% of the cases in kevin powells' opinion</p>
-
-    <p>-</p>
-    shouldn't be used if the images don't have the same aspect ratio
 
     <hr />
 
