@@ -2,11 +2,13 @@
 
 Here's a quick guide on how you should use the img and picture tag in order to meet the new web standards expectations.
 
-The index.html file contains a simulation of different cases where srcset is used or not to show the benefits from it
+> The index.html file contains a simulation of different cases where srcset is used or not to show the benefits from it
 
 [Link to the html simulation here](https://donovancloth.github.io/img-picture-tags/)
 
-The index.php file contains a small bit of code that allows you to use an image from acf using the srcset
+> The index.php file contains a small bit of code that allows you to use an image from acf using the srcset
+
+## Useful links
 
 [Guide to choose between IMG and PICTURE | srcset and sizes attributes explained](http://codeanddecode.net/web-performance/picture-tags-vs-img-tags-their-uses-and-misuses/)
 
