@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Img vs Picture</title>
+  </head>
+  <body>
+    <h2>The img tag with a source attribute</h2>
+
+    <p>
+      In order to test it just disable the cache from your browser and refresh
+      the page on different width
+    </p>
+    <p>
+      you'll notice that the same image is loaded no matter how wide your screen
+      is
+    </p>
+
+    <!-- <img src="assets/images/cat-1500.jpg" alt="single source image" /> -->
+
+    <p>+</p>
+    <p>works fine in all browsers</p>
+
+    <p>-</p>
+    <p>loads the image provided in the source attribute no matter what</p>
+    <p>
+      if the source image is big it will take a lot of time to load on mobile
+    </p>
+    <p>
+      if the source image is small it will be rendered as a blurred and pixeled
+      image
+    </p>
+    <p>
+      overall not optimized to adapt to the various range of existing screens
+    </p>
+
+    <hr />
+
+    <h2>The img tag with a source AND a srcset attribute</h2>
+
+    <p>
+      In order to test it disable your cache and refresh the page below the
+      following width values
+    </p>
+
+    <p>below 500px will trigger the cat-500 image</p>
+    <p>below 1000px will trigger the cat-1000 image</p>
+    <p>below 1500px will trigger the cat-1500 image</p>
+    <p>
+      no other image are expected in this configuration but we could have more
+      than 3
+    </p>
+    <p>
+      You should also pay attention to this detail: once the bigger picture is
+      loaded on chrome the smaller versions won't load because there's no point
+      in loading extra images when the best one is already on the client side
+    </p>
+
+    <!-- <img
+      class="srcset"
+      src="assets/images/cat-500.jpg"
+      srcset="
+        assets/images/cat-500.jpg   500w,
+        assets/images/cat-1000.jpg 1000w,
+        assets/images/cat-1500.jpg 1500w
+      "
+      alt="single source image with multiple srcset"
+    /> -->
+
+    <p>
+      smallest picture is provided in the src attribute as a fallback for older
+      browsers
+    </p>
+    <p>
+      the srcset attribute expects a comma separated list of src together with
+      their matching width on the viewport
+    </p>
+
+    <p>+</p>
+    <p>
+      works fine in all browsers if we leave the src attribute as a fallback for
+      older browsers
+    </p>
+    <p>
+      will load an image that suits the viewport which improves performances
+    </p>
+    <p>suits 95% of the cases in kevin powells' opinion</p>
+
+    <p>-</p>
+    shouldn't be used if the images don't have the same aspect ratio
+
+    <hr />
+
+    <h2>
+      The img tag with a source AND a srcset attribute AND sizes attribute
+    </h2>
+
+    <p>below 625px will trigger the cat-500 image because image is 80% wide</p>
+    <p>
+      below 1333px will trigger the cat-1000 image because image is 75% wide
+    </p>
+    <p>
+      below 1430px will trigger the cat-1500 image because image is 70% wide
+    </p>
+
+    <img
+      class="srcset-sizes"
+      src="assets/images/cat-500.jpg"
+      srcset="
+        assets/images/cat-500.jpg   500w,
+        assets/images/cat-1000.jpg 1000w,
+        assets/images/cat-1500.jpg 1500w
+      "
+      sizes="(min-width: 1250px) 70vw,
+      (min-width: 750px) 75vw,
+      80vw"
+      alt="single source image with multiple srcset"
+    />
+
+    <p>+</p>
+    <p>won't load image until it reaches its srcset breakpoint FOR REAL</p>
+    <p>
+      together with this attribute the optimization reaches its maximum capacity
+    </p>
+
+    <p>-</p>
+    <p>
+      doing media queries in the css and again in the sizes attribute represents
+      too much work for the benefits we're looking for
+    </p>
+    <p>makes a small thing look ultra complex</p>
+
+    <hr />
+
+    <h2>Should I use the picture tag ?</h2>
+
+    <p>
+      You don’t need to know all of the use cases, but you do need to know the
+      difference between the two most common use cases
+    </p>
+
+    <p>
+      Resolution switching — In the resolution switching use case, we need to
+      select a different source of the same image because we need a different
+      resolution for any number of reasons. These reasons include the image
+      being used at a different size based on the size of the screen, the pixel
+      density of the screen, or to avoid downloading unnecessarily large images.
+    </p>
+    <p>
+      Art direction — In the art direction use case, there is some reason why we
+      need to modify the content of an image under certain conditions. Maybe we
+      need to crop the image differently on small screens. Or perhaps we’re
+      working with a hero image that contains text and simply providing a
+      smaller version of the image won’t work because the text will be
+      unreadable. Basically, if you could resize an image without making any
+      other changes, and have a new source that solves your responsive images
+      needs, then you’re talking about the resolution switching use case. If you
+      need to change anything other than resolution, you’re talking about art
+      direction.
+    </p>
+  </body>
+</html>
